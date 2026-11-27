@@ -1,0 +1,643 @@
+/* ===== Warna dan font ===== */
+:root {
+  --bg: #eef2f5;
+  --surface: #fff;
+  --ink: #132031;
+  --muted: #526175;
+  --line: #cdd6df;
+  --accent: #1457b8;
+  --on-accent: #fff;
+  --display: "Space Grotesk", system-ui, sans-serif;
+  --body: "Inter", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Mode gelap */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e1620;
+    --surface: #172332;
+    --ink: #e8eef5;
+    --muted: #9fb0c3;
+    --line: #2a3a4d;
+    --accent: #72aaff;
+    --on-accent: #081220;
+    color-scheme: dark;
+  }
+}
+
+/* ===== Dasar ===== */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 16px/1.65 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+.wrap {
+  max-width: 940px;
+  margin: 0 auto;
+  padding-block: 20px 48px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  line-height: 1.15;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ===== Navigasi ===== */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  font: 500 13px var(--mono);
+}
+
+nav div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding-block: 4px;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* ===== Bagian pembuka ===== */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 48px;
+  align-items: center;
+  padding-block: 64px 56px;
+}
+
+.hero > * {
+  min-width: 0;
+}
+
+h1 {
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: var(--muted);
+  max-width: 34ch;
+  margin-top: 20px;
+}
+
+.place {
+  font: 500 13px var(--mono);
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+/* ===== Tombol ===== */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.btn {
+  font: 600 15px var(--body);
+  padding: 11px 20px;
+  border-radius: 6px;
+  border: 1.5px solid var(--accent);
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  color: var(--accent);
+}
+
+.btn.solid {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* ===== Foto ===== */
+.photo {
+  width: 100%;
+  aspect-ratio: 199/270;
+  object-fit: cover;
+  border-radius: 120px 120px 8px 8px;
+  display: block;
+}
+
+/* ===== Garis warna kabel LAN T568B ===== */
+.cable {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 3px;
+  height: 10px;
+}
+
+.cable i {
+  background: var(--c);
+  box-shadow: inset 0 0 0 1px rgba(100, 115, 135, 0.45);
+}
+
+.cable i.striped {
+  background: repeating-linear-gradient(135deg, var(--c) 0 6px, #fff 6px 12px);
+}
+
+/* ===== Susunan setiap bagian ===== */
+section {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 16px 32px;
+  padding-block: 52px;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 16px;
+}
+
+section > * {
+  min-width: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+.about {
+  font-size: 1.15rem;
+  max-width: 60ch;
+}
+
+/* ===== Pendidikan, pengalaman, organisasi ===== */
+.list {
+  display: grid;
+  gap: 36px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  align-items: baseline;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+.date {
+  font: 500 13px var(--mono);
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.org {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.list ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  max-width: 62ch;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+li::marker {
+  color: var(--accent);
+}
+
+/* ===== Skill ===== */
+.skills {
+  display: grid;
+  gap: 28px;
+}
+
+.skills h3 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chips li {
+  margin: 0;
+  padding: 8px 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.chips.soft li {
+  background: transparent;
+  border-radius: 99px;
+}
+
+/* ===== Kontak ===== */
+.contact {
+  display: grid;
+  gap: 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-block: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.row > div:first-child {
+  min-width: 0;
+}
+
+.row small {
+  display: block;
+  font: 500 12px var(--mono);
+  color: var(--muted);
+}
+
+.value {
+  font: 500 1.15rem var(--display);
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+
+.row .actions {
+  margin: 0;
+}
+
+.row .btn {
+  padding: 7px 14px;
+  font-size: 14px;
+}
+
+/* ===== Footer ===== */
+footer {
+  padding-top: 32px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+footer .cable {
+  margin-bottom: 16px;
+  max-width: 180px;
+}
+
+/* ===== Tampilan HP ===== */
+@media (max-width: 700px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-block: 36px 40px;
+  }
+  .visual {
+    order: -1;
+    width: 170px;
+  }
+  section {
+    grid-template-columns: 1fr;
+    padding-block: 36px;
+  }
+}
+
+/* ===== Slide dokumentasi OSIS ===== */
+.slider {
+  max-width: 320px; /* ubah angka ini untuk mengatur ukuran slide */
+}
+
+/* Bingkai warna-warni (warna kabel LAN) yang bergerak */
+.frame {
+  padding: 5px;
+  border-radius: 16px;
+  background: linear-gradient(
+    120deg,
+    #f28c28,
+    #2e9e5b,
+    #2563c9,
+    #8a5a3b,
+    #f28c28
+  );
+  background-size: 300% 300%;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+  animation: frame-flow 6s linear infinite;
+}
+
+/* Lapisan putih di dalam bingkai, seperti pigura */
+.mat {
+  padding: 8px;
+  border-radius: 12px;
+  background: #fff;
+}
+
+/* Jendela yang hanya memperlihatkan satu foto */
+.window {
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+/* Deretan foto yang digeser oleh script.js */
+.track {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.track img {
+  display: block;
+  flex: 0 0 100%;
+  width: 100%;
+  aspect-ratio: 720 / 878;
+  object-fit: contain;
+  opacity: 0.3;
+  transform: scale(0.85);
+  transition:
+    opacity 0.7s,
+    transform 0.7s;
+}
+
+.track img.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Tombol panah dan titik */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.arrow {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 99px;
+  background: var(--line);
+  cursor: pointer;
+  transition:
+    width 0.3s,
+    background 0.3s;
+}
+
+.dot.active {
+  width: 28px;
+  background: var(--accent);
+}
+
+@media (max-width: 700px) {
+  .slider {
+    margin-inline: auto;
+  }
+}
+
+@keyframes frame-flow {
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+/* ===== Foto produk Ketan Duren ===== */
+.product {
+  max-width: 320px; /* ubah angka ini untuk mengatur ukuran foto */
+  margin: 18px 0 0;
+}
+
+.product img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  transition: transform 0.4s;
+}
+
+.product .window:hover img {
+  transform: scale(1.08);
+}
+
+@media (max-width: 700px) {
+  .product {
+    margin-inline: auto;
+  }
+}
+
+/* ===== Animasi ===== */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes connect {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes signal {
+  10% {
+    transform: scaleY(2.2);
+  }
+  20% {
+    transform: scaleY(1);
+  }
+}
+
+/* Teks pembuka muncul bergantian */
+.hero > div:first-child > * {
+  animation: slide-up 0.7s ease-out backwards;
+}
+.hero > div:first-child > :nth-child(2) {
+  animation-delay: 0.15s;
+}
+.hero > div:first-child > :nth-child(3) {
+  animation-delay: 0.3s;
+}
+.hero > div:first-child > :nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+/* Foto muncul, lalu melayang pelan */
+.visual {
+  animation: pop-in 0.9s ease-out 0.2s backwards;
+}
+.photo {
+  animation: float 5s ease-in-out 1.2s infinite;
+}
+
+/* Garis kabel tersambung, lalu seperti dilewati sinyal */
+.cable i {
+  transform-origin: left center;
+  animation:
+    connect 0.4s ease-out calc(0.5s + var(--n) * 0.1s) backwards,
+    signal 3s ease-in-out calc(2s + var(--n) * 0.15s) infinite;
+}
+.cable i:nth-child(1) {
+  --n: 0;
+}
+.cable i:nth-child(2) {
+  --n: 1;
+}
+.cable i:nth-child(3) {
+  --n: 2;
+}
+.cable i:nth-child(4) {
+  --n: 3;
+}
+.cable i:nth-child(5) {
+  --n: 4;
+}
+.cable i:nth-child(6) {
+  --n: 5;
+}
+.cable i:nth-child(7) {
+  --n: 6;
+}
+.cable i:nth-child(8) {
+  --n: 7;
+}
+
+/* Class "show" ditambahkan oleh script.js saat elemen terlihat di layar */
+.show {
+  animation: slide-up 0.7s ease-out backwards;
+}
+.show .chips li {
+  animation: pop-in 0.4s ease-out backwards;
+}
+.show .chips li:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.show .chips li:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.show .chips li:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.show .chips li:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+/* Efek saat disentuh mouse */
+.btn,
+.chips li,
+.list article {
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s,
+    border-color 0.25s;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(20, 87, 184, 0.25);
+}
+.chips li:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+.list article:hover {
+  transform: translateX(8px);
+}
+nav a {
+  background: linear-gradient(var(--accent), var(--accent)) left bottom / 0 2px
+    no-repeat;
+  transition:
+    background-size 0.3s,
+    color 0.3s;
+}
+nav a:hover {
+  background-size: 100% 2px;
+}
+
+/* Matikan animasi bila pengguna memintanya di pengaturan perangkat */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
